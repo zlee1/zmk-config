@@ -62,12 +62,12 @@
 // -----------------------------------------------------------------------------------------
 // | ESC  |  '   |  [  |  =  |  ;  |  \  |       |      |     |     |     |  \  | BSPC |
 // | GUI  |  `   |  -  |  =  |  (  |  [  | ----- |  ]   |  )  |  ;  |  '  | RET | DEL  |
-// | SHFT |OUTTOG| BT0 | BT1 |     |     |       |      |     |  ,  |  .  |  /  | SHFT |
+// | SHFT |OUTTOG| BT0 | BT1 | BT2 |     |       |      |     |  ,  |  .  |  /  | SHFT |
 //                     |     | N/A |BTCLR|       | CTRL | DIR | ALT |
                         bindings = <
    &kp ESC        &kp SQT      &kp LBKT     &kp EQUAL    &kp SEMI     &kp BSLH        &none           &none         &none     &none   &kp BSLH &kp BSPC
    &kp LGUI       &kp GRAVE    &kp MINUS    &kp EQUAL    &kp LPAR     &kp LBKT        &kp RBKT        &kp RPAR      &kp SEMI  &kp SQT &kp RET  &kp DEL
-   &mt LSHFT CAPS &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &none        &none           &none           &none         &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+   &mt LSHFT CAPS &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none           &none           &none         &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                                             &none        &none        &bt BT_CLR      &mt RCTRL SPACE &lt DIR SPACE &kp RALT
                         >;
                 };
