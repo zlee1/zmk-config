@@ -21,7 +21,6 @@
         chain-length = <27>;
 };
 
-
 // / {
 //         underglow-layer {
 //                 compatible  = "zmk,underglow-layer";
