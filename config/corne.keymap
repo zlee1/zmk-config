@@ -21,21 +21,23 @@
         chain-length = <27>;
 };
 
-/ {
-        underglow-layer {
-                compatible  = "zmk,underglow-layer";
-
-                base {
-                bindings = <
-        &ug ___    &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-        &ug ___    &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-        &ug_cl RED &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                                &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___
-                        >;
-                layer-id = <BASE>;
-                };
-        };
-};
+/*
+ *       / {
+ *               underglow-layer {
+ *                       compatible  = "zmk,underglow-layer";
+ *
+ *                       base {
+ *                       bindings = <
+ *               &ug ___    &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+ *               &ug ___    &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+ *               &ug_cl RED &ug ___ &ug ___ &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+ *                                       &ug ___ &ug ___ &ug ___     &ug ___ &ug ___ &ug ___
+ *                               >;
+ *                       layer-id = <BASE>;
+ *                       };
+ *               };
+ *       };
+*/
 
 / {
         keymap {
