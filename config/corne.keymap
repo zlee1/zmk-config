@@ -21,6 +21,10 @@
         chain-length = <27>;
 };
 
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
 // / {
 //         underglow-layer {
 //                 compatible  = "zmk,underglow-layer";
