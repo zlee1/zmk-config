@@ -18,7 +18,7 @@
 #define DIR 3
 
 &led_strip {
-        chain-length = <54>;
+        chain-length = <27>;
 };
 
 
