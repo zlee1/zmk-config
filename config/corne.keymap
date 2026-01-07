@@ -115,12 +115,12 @@
 // | ESC  |     | LMB | MUP | RMB |     |       | MSE | LMB | SCU | RMB |     | BSPC |
 // | GUI  |     | MRT | MDN | MLT |     | ----- |     | SCL | SCD | SCR | RET | DEL  |
 // | SHFT |     |     |     |     |     |       |     |     |     |     |     | SHFT |
-//                    |     |     |     |       |     |     |     |
+//                    |     |     | LMB |       | RMB |     |     |
                         bindings = <
-   &kp ESC        &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none        &tog MSE &mkp LCLK      &msc SCRL_UP   &mkp RCLK       &none   &kp BSPC
-   &kp LGUI       &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none        &none    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
-   &mt LSHFT CAPS &none &none          &none          &none           &none        &none    &none          &none          &none           &none   &kp RSHFT
-                                       &none          &none           &none        &none    &none          &none
+   &kp ESC        &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none                 &tog MSE  &mkp LCLK      &msc SCRL_UP   &mkp RCLK       &none   &kp BSPC
+   &kp LGUI       &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                 &none     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
+   &mt LSHFT CAPS &none &none          &none          &none           &none                 &none     &none          &none          &none           &none   &kp RSHFT
+                                       &none          &none           &mkp LCLK             &mkp RCLK &none          &none
                         >;
                 };
         };
