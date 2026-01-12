@@ -20,7 +20,8 @@
 #define SYM 1
 #define NUM 2
 #define DIR 3
-#define MSE 4
+#define PGD 4
+#define MSE 5
 
 &led_strip {
         chain-length = <27>;
@@ -71,33 +72,33 @@
                 };
         };
 
-        combos {
-                compatible = "zmk,combos";
-                combo_pgup {
-                        timeout-ms = <50>;
-                        key-positions = <3 8>;
-                        bindings = <&kp PG_UP>;
-                        layers = <DIR>;
-                };
-                combo_pgdn {
-                        timeout-ms = <50>;
-                        key-positions = <15 8>;
-                        bindings = <&kp PG_DN>;
-                        layers = <DIR>;
-                };
-                combo_home {
-                        timeout-ms = <50>;
-                        key-positions = <14 8>;
-                        bindings = <&kp HOME>;
-                        layers = <DIR>;
-                };
-                combo_end {
-                        timeout-ms = <50>;
-                        key-positions = <16 8>;
-                        bindings = <&kp END>;
-                        layers = <DIR>;
-                };
-        };
+        //combos {
+        //        compatible = "zmk,combos";
+        //        combo_pgup {
+        //                timeout-ms = <50>;
+        //                key-positions = <3 8>;
+        //                bindings = <&kp PG_UP>;
+        //                layers = <DIR>;
+        //        };
+        //        combo_pgdn {
+        //                timeout-ms = <50>;
+        //                key-positions = <15 8>;
+        //                bindings = <&kp PG_DN>;
+        //                layers = <DIR>;
+        //        };
+        //        combo_home {
+        //                timeout-ms = <50>;
+        //                key-positions = <14 8>;
+        //                bindings = <&kp HOME>;
+        //                layers = <DIR>;
+        //        };
+        //        combo_end {
+        //                timeout-ms = <50>;
+        //                key-positions = <16 8>;
+        //                bindings = <&kp END>;
+        //                layers = <DIR>;
+        //        };
+        //};
 
         keymap {
                 compatible = "zmk,keymap";
@@ -146,22 +147,37 @@
                         >;
                 };
 
-
-// add home row mod to right side, move pgup, pgdn, home, end to left and bind to ctrl combo
                 direction_layer {
                         display-name = "DIR";
 // -----------------------------------------------------------------------------------------
-// | ESC  |RGBHUD|RGBHUI|  UP  |RGBSAD|RGBSAI|       | MSE   |      |       | CBRIDN| CBRIUP| BSPC |
-// | GUI  |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- | SHFT  |      |       |       |  RET  | DEL  |
+// | ESC  |RGBHUD|RGBHUI|  UP  |RGBSAD|RGBSAI|       | MSE   |      |  PGD  | CBRIDN| CBRIUP| BSPC |
+// | GUI  |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- |       |      |       |       |  RET  | DEL  |
 // | SHFT |RGBTOG|RGBBRD|RGBBRI|RGBSPD|RGBSPI|       | WINMV | MUTE | VOLUP | VOLDN |       | SHFT |
 //                      | EPOFF|      | BTLD |       | BTLD  |      | EPON  |
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
-   &kp ESC        &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &none        &kp C_BRI_DN &kp C_BRI_DN &kp BSPC
-   &kp LGUI       &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &none            &kp LSHFT  &kp LCTRL    &kp LALT     &kp LGUI     &kp DEL
-   &mt LSHFT CAPS &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none        &kp RSHFT
+   &kp ESC        &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_DN  &kp BSPC
+   &kp LGUI       &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &none            &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
+   &mt LSHFT CAPS &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
                                                   &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
+                        >;
+                };
+
+                pg_direction_layer {
+                        display-name = "PGD";
+// -----------------------------------------------------------------------------------------
+// | ESC  |      |      | PGUP |     |      |       |       |      |      |     |     |      |
+// | GUI  |      | HOME | PGDN | END |      | ----- |       | SHFT | CTRL | ALT | GUI |      |
+// | SHFT |      |      |      |     |      |       |       |      |      |     |     |      |
+//                      |      |     |      |       |       |      |      |
+// WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
+
+                        bindings = <
+   &kp ESC        &none &none    &kp PG_UP &none   &none          &none &none     &none     &none    &none         &kp BSPC
+   &kp LGUI       &none &kp HOME &kp PG_DN &kp END &none          &none &kp LSHFT &kp LCTRL &kp LALT &hmr LGUI RET &kp DEL
+   &mt LSHFT CAPS &none &none    &none     &none   &none          &none &none     &none     &none    &none         &kp RSHFT
+                                 &none     &none   &none          &none &none     &none
                         >;
                 };
 
