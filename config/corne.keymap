@@ -74,31 +74,31 @@
         combos {
                 compatible = "zmk,combos";
                 combo_pgup {
-                        timeout-ms = <50>;
+                        timeout-ms = <500>;
                         key-positions = <3 18>;
                         bindings = <&kp PG_UP>;
-                        layers = DIR;
+                        layers = <DIR>;
                         slow-release;
                 };
                 combo_pgdn {
-                        timeout-ms = <50>;
+                        timeout-ms = <500>;
                         key-positions = <15 18>;
                         bindings = <&kp PG_DN>;
-                        layers = DIR;
+                        layers = <DIR>;
                         slow-release;
                 };
                 combo_home {
-                        timeout-ms = <50>;
+                        timeout-ms = <500>;
                         key-positions = <14 18>;
                         bindings = <&kp HOME>;
-                        layers = DIR;
+                        layers = <DIR>;
                         slow-release;
                 };
                 combo_end {
-                        timeout-ms = <50>;
+                        timeout-ms = <500>;
                         key-positions = <16 18>;
                         bindings = <&kp END>;
-                        layers = DIR;
+                        layers = <DIR>;
                         slow-release;
                 };
         };
