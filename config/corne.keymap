@@ -140,10 +140,10 @@
 // | SHFT |     | F9  | F10 | F11 | F12 |       |      |  1  |  2  |  3  |     | SHFT |
 //                    |     |     |     |       | CTRL |  0  |  0  |
                         bindings = <
-   &kp ESC        &none &kp F1 &kp F2  &kp F3  &kp F4        &none           &kp N7        &kp N8        &kp N9       &none         &kp BSPC
-   &kp LGUI       &none &kp F5 &kp F6  &kp F7  &kp F8        &none           &hmr RSHFT N4 &hmr RCTRL N5 &hmr RALT N6 &hmr RGUI RET &kp DEL
-   &mt LSHFT CAPS &none &kp F9 &kp F10 &kp F11 &kp F12       &none           &kp N1        &kp N2        &kp N3       &none         &kp RSHFT
-                               &none   &none   &none         &mt RCTRL SPACE &kp N0        &kp N0
+   &kp ESC        &none    &kp F1       &kp F2        &kp F3        &kp F4        &none           &kp N7        &kp N8        &kp N9       &none         &kp BSPC
+   &kp LGUI       &kp LGUI &hml LALT F5 &hml LCTRL F6 &hml LSHFT F7 &kp F8        &none           &hmr RSHFT N4 &hmr RCTRL N5 &hmr RALT N6 &hmr RGUI RET &kp DEL
+   &mt LSHFT CAPS &none    &kp F9       &kp F10       &kp F11       &kp F12       &none           &kp N1        &kp N2        &kp N3       &none         &kp RSHFT
+                                        &none         &none         &none         &mt RCTRL SPACE &kp N0        &kp N0
                         >;
                 };
 
