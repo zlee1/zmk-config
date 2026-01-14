@@ -27,6 +27,13 @@
         chain-length = <27>;
 };
 
+&mmv {
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        time-to-max-speed-ms = <750>;
+        acceleration-exponent = <1>;
+};
+
 
 // / {
 //         underglow-layer {
@@ -71,14 +78,6 @@
                         hold-trigger-on-release;
                 };
         };
-
-        &mmv {
-                x-input-code = <INPUT_REL_X>;
-                y-input-code = <INPUT_REL_Y>;
-                time-to-max-speed-ms = <750>;
-                acceleration-exponent = <1>;
-        };
-
 
         //combos {
         //        compatible = "zmk,combos";
