@@ -40,6 +40,7 @@
 
 &uc { 
   minimum-length = <4>;
+  default-mode = <UC_MODE_WIN_ALT>;
 };
 
 
