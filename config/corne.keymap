@@ -37,6 +37,10 @@
         acceleration-exponent = <1>;
 };
 
+&uc { 
+  minimum-length = <4>;
+};
+
 
 // / {
 //         underglow-layer {
