@@ -117,28 +117,28 @@
                         display-name = "BASE";
 // -----------------------------------------------------------------------------------------
 // | TAB  |  Q  |  W  |  E   |  R  |  T  |       |  Y   |  U   |  I  |  O  |  P  | BSPC |
-// | GUI  |  A  |  S  |  D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
+// | CAPS |  A  |  S  |  D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
 // | SHFT |  Z  |  X  |  C   |  V  |  B  |       |  N   |  M   |  ,  |  .  |  /  | SHFT |
 //                    | CTRL | SYM | NUM |       | CTRL | SPC  | ALT |
                         bindings = <
-   &kp TAB        &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y           &kp U        &kp I        &kp O       &kp P         &kp BSPC
-   &kp LGUI       &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H           &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI RET &kp DEL
-   &mt LSHFT CAPS &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N           &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT
-                                          &kp LCTRL    &mo SYM      &mo NUM      &mt RCTRL SPACE &kp SPACE    &kp RALT
+   &kp TAB   &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y           &kp U        &kp I        &kp O       &kp P         &kp BSPC
+   &kp CAPS  &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H           &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI RET &kp DEL
+   &kp LSHFT &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N           &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT
+                                     &kp LCTRL    &mo SYM      &mo NUM      &mt RCTRL SPACE &kp SPACE    &kp RALT
                         >;
                 };
                 symbol_layer {
                         display-name = "SYM";
 // -----------------------------------------------------------------------------------------
 // | ESC  | à/À  | è/È | ì/Ì | ò/Ò | ù/Ù |       |      | é/É |     |     |  \  | BSPC |
-// | GUI  |  `   |  -  |  =  |  (  |  [  | ----- |  ]   |  )  |  ;  |  '  | RET | DEL  |
+// | CAPS |  `   |  -  |  =  |  (  |  [  | ----- |  ]   |  )  |  ;  |  '  | RET | DEL  |
 // | SHFT |OUTTOG| BT0 | BT1 | BT2 |     |       |      |     |  ,  |  .  |  /  | SHFT |
 //                     |     | N/A |BTCLR|       | CTRL | DIR | ALT |
                         bindings = <
-   &kp ESC        &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc LATIN_LETTER_E_WITH_GRAVE &uc LATIN_LETTER_I_WITH_GRAVE &uc LATIN_LETTER_O_WITH_GRAVE &uc LATIN_LETTER_U_WITH_GRAVE       &none           &uc LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
-   &kp LGUI       &hml LGUI GRAVE                  &hml LALT MINUS               &hml LCTRL EQUAL              &hml LSHFT LPAR               &kp LBKT                            &kp RBKT        &hmr RSHFT RPAR               &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
-   &mt LSHFT CAPS &out OUT_TOG                     &bt BT_SEL 0                  &bt BT_SEL 1                  &bt BT_SEL 2                  &none                               &none           &none                         &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
-                                                                                 &none                         &none                         &bt BT_CLR                          &mt RCTRL SPACE &lt DIR SPACE                 &kp RALT
+   &kp ESC   &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc UC_LATIN_LETTER_E_WITH_GRAVE &uc UC_LATIN_LETTER_I_WITH_GRAVE &uc UC_LATIN_LETTER_O_WITH_GRAVE &uc UC_LATIN_LETTER_U_WITH_GRAVE          &none           &uc UC_LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
+   &kp CAPS  &hml LGUI GRAVE                  &hml LALT MINUS                  &hml LCTRL EQUAL                 &hml LSHFT LPAR                  &kp LBKT                                  &kp RBKT        &hmr RSHFT RPAR                  &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
+   &kp LSHFT &out OUT_TOG                     &bt BT_SEL 0                     &bt BT_SEL 1                     &bt BT_SEL 2                     &none                                     &none           &none                            &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
+                                                                               &none                            &none                            &bt BT_CLR                                &mt RCTRL SPACE &lt DIR SPACE                    &kp RALT
                         >;
                 };
 
@@ -146,13 +146,13 @@
                         display-name = "NUM";
 // -----------------------------------------------------------------------------------------
 // | ESC  |     | F1  | F2  | F3  | F4  |       |      |  7  |  8  |  9  |     | BSPC |
-// | GUI  |     | F5  | F6  | F7  | F8  | ----- |      |  4  |  5  |  6  | RET | DEL  |
+// | CAPS |     | F5  | F6  | F7  | F8  | ----- |      |  4  |  5  |  6  | RET | DEL  |
 // | SHFT |     | F9  | F10 | F11 | F12 |       |      |  1  |  2  |  3  |     | SHFT |
 //                    |     |     |     |       | CTRL |  0  |  0  |
                         bindings = <
-   &kp ESC        &none    &kp F1       &kp F2        &kp F3        &kp F4        &none           &kp N7        &kp N8        &kp N9       &none         &kp BSPC
-   &kp LGUI       &kp LGUI &hml LALT F5 &hml LCTRL F6 &hml LSHFT F7 &kp F8        &none           &hmr RSHFT N4 &hmr RCTRL N5 &hmr RALT N6 &hmr RGUI RET &kp DEL
-   &mt LSHFT CAPS &none    &kp F9       &kp F10       &kp F11       &kp F12       &none           &kp N1        &kp N2        &kp N3       &none         &kp RSHFT
+   &kp ESC   &none    &kp F1       &kp F2        &kp F3        &kp F4        &none           &kp N7        &kp N8        &kp N9       &none         &kp BSPC
+   &kp CAPS  &kp LGUI &hml LALT F5 &hml LCTRL F6 &hml LSHFT F7 &kp F8        &none           &hmr RSHFT N4 &hmr RCTRL N5 &hmr RALT N6 &hmr RGUI RET &kp DEL
+   &kp LSHFT &none    &kp F9       &kp F10       &kp F11       &kp F12       &none           &kp N1        &kp N2        &kp N3       &none         &kp RSHFT
                                         &none         &none         &none         &mt RCTRL SPACE &kp N0        &kp N0
                         >;
                 };
@@ -161,16 +161,16 @@
                         display-name = "DIR";
 // -----------------------------------------------------------------------------------------
 // | ESC  |RGBHUD|RGBHUI|  UP  |RGBSAD|RGBSAI|       | MSE   |      |  PGD  | CBRIDN| CBRIUP| BSPC |
-// | GUI  |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- | GME   |      |       |       |  RET  | DEL  |
+// | CAPS |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- | GME   |      |       |       |  RET  | DEL  |
 // | SHFT |RGBTOG|RGBBRD|RGBBRI|RGBSPD|RGBSPI|       | WINMV | MUTE | VOLUP | VOLDN |       | SHFT |
 //                      | EPOFF|      | BTLD |       | BTLD  |      | EPON  |
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
-   &kp ESC        &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_DN  &kp BSPC
-   &kp LGUI       &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &tog GME         &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
-   &mt LSHFT CAPS &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
-                                                  &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
+   &kp ESC   &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_DN  &kp BSPC
+   &kp CAPS  &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &tog GME         &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
+   &kp LSHFT &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
+                                             &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
                         >;
                 };
 
@@ -178,16 +178,16 @@
                         display-name = "PGD";
 // -----------------------------------------------------------------------------------------
 // | ESC  |      |      | PGUP |     |      |       |       |      |      |     |     |      |
-// | GUI  |      | HOME | PGDN | END |      | ----- |       | SHFT | CTRL | ALT | GUI |      |
+// | CAPS |      | HOME | PGDN | END |      | ----- |       | SHFT | CTRL | ALT | GUI |      |
 // | SHFT |      |      |      |     |      |       |       |      |      |     |     |      |
 //                      |      |     |      |       |       |      |      |
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
-   &kp ESC        &none &none    &kp PG_UP &none   &none          &none &none     &none     &none    &none         &kp BSPC
-   &kp LGUI       &none &kp HOME &kp PG_DN &kp END &none          &none &kp LSHFT &kp LCTRL &kp LALT &hmr LGUI RET &kp DEL
-   &mt LSHFT CAPS &none &none    &none     &none   &none          &none &none     &none     &none    &none         &kp RSHFT
-                                 &none     &none   &none          &none &none     &none
+   &kp ESC   &none &none    &kp PG_UP &none   &none          &none &none     &none     &none    &none         &kp BSPC
+   &kp CAPS  &none &kp HOME &kp PG_DN &kp END &none          &none &kp LSHFT &kp LCTRL &kp LALT &hmr LGUI RET &kp DEL
+   &kp LSHFT &none &none    &none     &none   &none          &none &none     &none     &none    &none         &kp RSHFT
+                            &none     &none   &none          &none &none     &none
                         >;
                 };
 
@@ -195,14 +195,14 @@
                         display-name = "MSE";
 // -----------------------------------------------------------------------------------------
 // | ESC  |     | LMB | MUP | RMB |     |       | MSE | LMB | SCU | RMB |     | BSPC |
-// | GUI  |     | MRT | MDN | MLT |     | ----- |     | SCL | SCD | SCR | RET | DEL  |
+// | CAPS |     | MRT | MDN | MLT |     | ----- |     | SCL | SCD | SCR | RET | DEL  |
 // | SHFT |     |     |     |     |     |       |     |     |     |     |     | SHFT |
 //                    |     |     | LMB |       | RMB |     |     |
                         bindings = <
-   &kp ESC        &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none                 &tog MSE  &mkp LCLK      &msc SCRL_UP   &mkp RCLK       &none   &kp BSPC
-   &kp LGUI       &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                 &none     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
-   &mt LSHFT CAPS &none &none          &none          &none           &none                 &none     &none          &none          &none           &none   &kp RSHFT
-                                       &none          &mkp LCLK       &none                 &kp RCTRL &mkp RCLK      &none
+   &kp ESC   &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none                 &tog MSE  &mkp LCLK      &msc SCRL_UP   &mkp RCLK       &none   &kp BSPC
+   &kp CAPS  &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                 &none     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
+   &kp LSHFT &none &none          &none          &none           &none                 &none     &none          &none          &none           &none   &kp RSHFT
+                                  &none          &mkp LCLK       &none                 &kp RCTRL &mkp RCLK      &none
                         >;
                 };
 
@@ -222,5 +222,4 @@
                 };
         };
 };
-
 
