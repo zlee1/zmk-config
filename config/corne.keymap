@@ -39,8 +39,9 @@
 };
 
 &uc { 
-  minimum-length = <4>;
-  default-mode = <UC_MODE_WIN_ALT>;
+  //minimum-length = <4>;
+  default-mode = <UC_MODE_MAC_OS>;
+  macos-key = <LALT>;
 };
 
 
