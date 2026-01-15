@@ -10,6 +10,8 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     # - name: mctechnology17
     #   url-base: https://github.com/mctechnology17
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zlee1
@@ -18,5 +20,8 @@ manifest:
     - name: zmk-nice-oled
       remote: zlee1
       revision: oled_customization
+    - name: zmk-unicode
+      remote: urob
+      revision: v0.3
   self:
     path: config
