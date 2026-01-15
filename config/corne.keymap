@@ -12,9 +12,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <behaviors/unicode.dtsi>
-#include <zmk-unicode/keys-extra.h>
-#include <zmk-unicode/keys-full.h>
+//#include <behaviors/unicode.dtsi>
+//#include <zmk-unicode/keys-extra.h>
+//#include <zmk-unicode/keys-full.h>
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 750
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20
@@ -38,11 +38,11 @@
         acceleration-exponent = <1>;
 };
 
-&uc { 
+//&uc { 
   //minimum-length = <4>;
-  default-mode = <UC_MODE_MAC_OS>;
-  macos-key = <LALT>;
-};
+  //default-mode = <UC_MODE_MAC_OS>;
+  //macos-key = <LALT>;
+//};
 
 
 // / {
@@ -137,15 +137,19 @@
                 symbol_layer {
                         display-name = "SYM";
 // -----------------------------------------------------------------------------------------
-// | ESC  | à/À  | è/È | ì/Ì | ò/Ò | ù/Ù |       |      | é/É |     |     |  \  | BSPC |
+// | ESC  |  '   |  [  |  =  |  ;  |  \  |       |      |     |     |     |  \  | BSPC |
 // | CAPS |  `   |  -  |  =  |  (  |  [  | ----- |  ]   |  )  |  ;  |  '  | RET | DEL  |
 // | SHFT |OUTTOG| BT0 | BT1 | BT2 |     |       |      |     |  ,  |  .  |  /  | SHFT |
 //                     |     | N/A |BTCLR|       | CTRL | DIR | ALT |
                         bindings = <
-   &kp ESC   &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc UC_LATIN_LETTER_E_WITH_GRAVE &uc UC_LATIN_LETTER_I_WITH_GRAVE &uc UC_LATIN_LETTER_O_WITH_GRAVE &uc UC_LATIN_LETTER_U_WITH_GRAVE          &none           &uc UC_LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
-   &kp CAPS  &hml LGUI GRAVE                  &hml LALT MINUS                  &hml LCTRL EQUAL                 &hml LSHFT LPAR                  &kp LBKT                                  &kp RBKT        &hmr RSHFT RPAR                  &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
-   &kp LSHFT &out OUT_TOG                     &bt BT_SEL 0                     &bt BT_SEL 1                     &bt BT_SEL 2                     &none                                     &none           &none                            &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
-                                                                               &none                            &none                            &bt BT_CLR                                &mt RCTRL SPACE &lt DIR SPACE                    &kp RALT
+   // unicode options that didn't work as well
+   //&kp ESC   &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc UC_LATIN_LETTER_E_WITH_GRAVE &uc UC_LATIN_LETTER_I_WITH_GRAVE &uc UC_LATIN_LETTER_O_WITH_GRAVE &uc UC_LATIN_LETTER_U_WITH_GRAVE          &none           &uc UC_LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
+   
+   
+   &kp ESC   &kp SQT         &kp LBKT        &kp EQUAL        &kp SEMI        &kp BSLH            &tog MSE        &none           &none           &none         &kp BSLH      &kp BSPC
+   &kp CAPS  &hml LGUI GRAVE &hml LALT MINUS &hml LCTRL EQUAL &hml LSHFT LPAR &kp LBKT            &kp RBKT        &hmr RSHFT RPAR &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
+   &kp LSHFT &out OUT_TOG    &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2    &none               &none           &none           &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
+                                             &none            &none           &bt BT_CLR          &mt RCTRL SPACE &lt DIR SPACE   &kp RALT
                         >;
                 };
 
