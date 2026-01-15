@@ -12,6 +12,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <zmk-unicode/keys-extra.h>
+#include <zmk-unicode/keys-full.h>
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 750
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20
@@ -22,6 +24,7 @@
 #define DIR 3 // direction/arrow key layer
 #define PGD 4 // page direction layer
 #define MSE 5 // mouse layer
+#define GME 6 // game layer
 
 &led_strip {
         chain-length = <27>;
@@ -127,15 +130,15 @@
                 symbol_layer {
                         display-name = "SYM";
 // -----------------------------------------------------------------------------------------
-// | ESC  |  '   |  [  |  =  |  ;  |  \  |       |      |     |     |     |  \  | BSPC |
+// | ESC  | à/À  | è/È | ì/Ì | ò/Ò | ù/Ù |       |      | é/É |     |     |  \  | BSPC |
 // | GUI  |  `   |  -  |  =  |  (  |  [  | ----- |  ]   |  )  |  ;  |  '  | RET | DEL  |
 // | SHFT |OUTTOG| BT0 | BT1 | BT2 |     |       |      |     |  ,  |  .  |  /  | SHFT |
 //                     |     | N/A |BTCLR|       | CTRL | DIR | ALT |
                         bindings = <
-   &kp ESC        &kp SQT         &kp LBKT        &kp EQUAL        &kp SEMI        &kp BSLH        &tog MSE        &none           &none           &none         &kp BSLH      &kp BSPC
-   &kp LGUI       &hml LGUI GRAVE &hml LALT MINUS &hml LCTRL EQUAL &hml LSHFT LPAR &kp LBKT        &kp RBKT        &hmr RSHFT RPAR &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
-   &mt LSHFT CAPS &out OUT_TOG    &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2    &none           &none           &none           &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
-                                                  &none            &none           &bt BT_CLR      &mt RCTRL SPACE &lt DIR SPACE   &kp RALT
+   &kp ESC        &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc LATIN_LETTER_E_WITH_GRAVE &uc LATIN_LETTER_I_WITH_GRAVE &uc LATIN_LETTER_O_WITH_GRAVE &uc LATIN_LETTER_U_WITH_GRAVE       &none           &uc LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
+   &kp LGUI       &hml LGUI GRAVE                  &hml LALT MINUS               &hml LCTRL EQUAL              &hml LSHFT LPAR               &kp LBKT                            &kp RBKT        &hmr RSHFT RPAR               &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
+   &mt LSHFT CAPS &out OUT_TOG                     &bt BT_SEL 0                  &bt BT_SEL 1                  &bt BT_SEL 2                  &none                               &none           &none                         &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
+                                                                                 &none                         &none                         &bt BT_CLR                          &mt RCTRL SPACE &lt DIR SPACE                 &kp RALT
                         >;
                 };
 
@@ -158,14 +161,14 @@
                         display-name = "DIR";
 // -----------------------------------------------------------------------------------------
 // | ESC  |RGBHUD|RGBHUI|  UP  |RGBSAD|RGBSAI|       | MSE   |      |  PGD  | CBRIDN| CBRIUP| BSPC |
-// | GUI  |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- |       |      |       |       |  RET  | DEL  |
+// | GUI  |RGBEFF| LEFT | DOWN | RGHT | SHFT | ----- | GME   |      |       |       |  RET  | DEL  |
 // | SHFT |RGBTOG|RGBBRD|RGBBRI|RGBSPD|RGBSPI|       | WINMV | MUTE | VOLUP | VOLDN |       | SHFT |
 //                      | EPOFF|      | BTLD |       | BTLD  |      | EPON  |
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
    &kp ESC        &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_DN  &kp BSPC
-   &kp LGUI       &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &none            &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
+   &kp LGUI       &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &tog GME         &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
    &mt LSHFT CAPS &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
                                                   &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
                         >;
@@ -200,6 +203,21 @@
    &kp LGUI       &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                 &none     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
    &mt LSHFT CAPS &none &none          &none          &none           &none                 &none     &none          &none          &none           &none   &kp RSHFT
                                        &none          &mkp LCLK       &none                 &kp RCTRL &mkp RCLK      &none
+                        >;
+                };
+
+                game_layer {
+                        display-name = "GME";
+// -----------------------------------------------------------------------------------------
+// | ESC  |  Q  |  W  |  E  |  R  |  T  |       |     |  7  |  8  |  9  |     | BSPC |
+// | TAB  |  A  |  S  |  D  |  F  |  G  | ----- | BASE|  4  |  5  |  6  | RET | DEL  |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |       |     |  1  |  2  |  3  |     | SHFT |
+//                    |CTRL | SPC |     |       |     |  0  |  0  |
+                        bindings = <
+   &kp ESC   &kp Q &kp W &kp E     &kp R     &kp T          &none    &kp N7 &kp N8 &kp N9 &none   &kp BSPC
+   &kp TAB   &kp A &kp S &kp D     &kp F     &kp G          &tog GME &kp N4 &kp N5 &kp N6 &kp RET &kp DEL
+   &kp LSHFT &kp Z &kp X &kp C     &kp V     &kp B          &none    &kp N1 &kp N2 &kp N3 &none   &kp RSHFT
+                         &kp LCTRL &kp SPACE &none          &none    &kp N0 &kp N0
                         >;
                 };
         };
