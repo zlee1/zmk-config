@@ -178,7 +178,7 @@
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
-   &kp ESC   &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_DN  &kp BSPC
+   &kp ESC   &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &none      &mo PGD      &kp C_BRI_DN &kp C_BRI_UP  &kp BSPC
    &kp CAPS  &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &tog GME         &kp LSHFT  &kp LCTRL    &kp LALT     &hmr LGUI RET &kp DEL
    &kp LSHFT &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
                                              &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
