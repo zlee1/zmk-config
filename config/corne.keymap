@@ -100,6 +100,17 @@
                                 , <&macro_release &kp LCTRL>
                                 ;
                 };
+
+                // macro to use command mode to uncomment a selection in SSMS/VSCode
+                uncomment: uncomment {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LCTRL>
+                                , <&macro_tap &kp K &kp U>
+                                , <&macro_release &kp LCTRL>
+                                ;
+                }
         };
 
         //combos {
@@ -136,15 +147,15 @@
                 default_layer {
                         display-name = "BASE";
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  E   |  R  |  T  |       |  Y   |  U   |  I  |  O  |  P  | BSPC |
-// | CAPS |  A  |  S  |  D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
-// | SHFT |  Z  |  X  |  C   |  V  |  B  |       |  N   |  M   |  ,  |  .  |  /  | SHFT |
-//                    | CTRL | SYM | NUM |       | CTRL | SPC  | COM |
+// | TAB  |  Q  |  W  |   E   |  R  |  T  |       |  Y   |  U   |  I  |  O  |  P  | BSPC |
+// | CAPS |  A  |  S  |   D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
+// | SHFT |  Z  |  X  |   C   |  V  |  B  |       |  N   |  M   |  ,  |  .  |  /  | SHFT |
+//                    | UNCOM | SYM | NUM |       | CTRL | SPC  | COM |
                         bindings = <
    &kp TAB   &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y           &kp U        &kp I        &kp O       &kp P         &kp BSPC
    &kp CAPS  &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H           &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI RET &kp DEL
    &kp LSHFT &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N           &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT
-                                     &kp LCTRL    &mo SYM      &mo NUM      &mt RCTRL SPACE &kp SPACE    &comment
+                                     &uncomment   &mo SYM      &mo NUM      &mt RCTRL SPACE &kp SPACE    &comment
                         >;
                 };
                 symbol_layer {
