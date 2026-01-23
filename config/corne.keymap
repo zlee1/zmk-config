@@ -110,7 +110,7 @@
                                 , <&macro_tap &kp K &kp U>
                                 , <&macro_release &kp LCTRL>
                                 ;
-                }
+                };
         };
 
         //combos {
