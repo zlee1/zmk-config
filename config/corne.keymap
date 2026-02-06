@@ -139,16 +139,16 @@
                 };
 
                 // macro to select a full line
-                line_sel: line_sel {
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        bindings
-                                = <&macro_tap &kp HOME>
-                                , <&macro_press &kp LSHFT>
-                                , <&macro_tap &kp END>
-                                , <&macro_release &kp LSHFT>
-                                ;
-                };
+                //line_sel: line_sel {
+                //        compatible = "zmk,behavior-macro";
+                //        #binding-cells = <0>;
+                //        bindings
+                //                = <&macro_tap &kp HOME>
+                //                , <&macro_press &kp LSHFT>
+                //                , <&macro_tap &kp END>
+                //                , <&macro_release &kp LSHFT>
+                //                ;
+                //};
         };
 
         //combos {
@@ -179,21 +179,37 @@
         //        };
         //};
 
+        // pretty format template
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+
+        //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+        
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         display-name = "BASE";
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |   E   |  R  |  T  |       |  Y   |  U   |  I  |  O  |  P  | BSPC |
-// | CAPS |  A  |  S  |   D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
-// | SHFT |  Z  |  X  |   C   |  V  |  B  |       |  N   |  M   |  ,  |  .  |  /  | LSEL |
-//                    | UNCOM | SYM | NUM |       | SHDR | SPC  | COM |
+// | TAB   |  Q  |  W  |   E   |  R  |  T  |       |  Y   |  U   |  I  |  O  |  P  | BSPC |
+// | CAPS  |  A  |  S  |   D   |  F  |  G  | ----- |  H   |  J   |  K  |  L  | RET | DEL  |
+// | UNCOM |  Z  |  X  |   C   |  V  |  B  |       |  N   |  M   |  ,  |  .  |  /  | COM  |
+//                     |  HOME | SYM | NUM |       | SHDR | SPC  | END |
                         bindings = <
-   &kp TAB   &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y     &kp U        &kp I        &kp O       &kp P         &kp BSPC
-   &kp CAPS  &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G        &kp H     &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI RET &kp DEL
-   &kp LSHFT &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N     &kp M        &kp COMMA    &kp DOT     &kp FSLH      &line_sel
-                                     &uncomment   &mo SYM      &mo NUM      &shft_dir &kp SPACE    &comment
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+             &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P          &kp BSPC
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &kp CAPS      &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G             &kp H         &hmr RSHFT J  &hmr RCTRL K  &hmr RALT L   &hmr RGUI RET  &kp DEL
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &uncomment    &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH       &comment
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                       &kp HOME      &mo SYM       &mo NUM           &shft_dir     &kp SPACE     &kp END
+        //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯    
                         >;
                 };
                 symbol_layer {
@@ -207,11 +223,15 @@
    // unicode options that didn't work as well
    //&kp ESC   &uc UC_LATIN_LETTER_A_WITH_GRAVE &uc UC_LATIN_LETTER_E_WITH_GRAVE &uc UC_LATIN_LETTER_I_WITH_GRAVE &uc UC_LATIN_LETTER_O_WITH_GRAVE &uc UC_LATIN_LETTER_U_WITH_GRAVE          &none           &uc UC_LATIN_LETTER_E_WITH_ACUTE &none           &none         &kp BSLH      &kp BSPC
    
-   
-   &kp ESC   &kp SQT         &kp LBKT        &kp EQUAL        &kp SEMI        &kp BSLH            &tog MSE        &none           &none           &none         &kp BSLH      &kp BSPC
-   &kp CAPS  &hml LGUI GRAVE &hml LALT MINUS &hml LCTRL EQUAL &hml LSHFT LPAR &kp LBKT            &kp RBKT        &hmr RSHFT RPAR &hmr RCTRL SEMI &hmr RALT SQT &hmr RGUI RET &kp DEL
-   &kp LSHFT &out OUT_TOG    &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2    &none               &none           &none           &kp COMMA       &kp DOT       &kp FSLH      &kp RSHFT
-                                             &none            &none           &bt BT_CLR          &mt RSHFT SPACE &lt DIR SPACE   &kp RALT
+        // ╭─────────────┬────────────────┬────────────────┬─────────────────┬────────────────┬─────────────╮   ╭────────────────┬────────────────┬────────────────┬──────────────┬──────────────┬─────────────╮
+             &kp ESC       &kp SQT          &kp LBKT         &kp EQUAL         &kp SEMI         &kp BSLH          &tog MSE         &none            &none            &none          &kp BSLH       &kp BSPC
+        // ├─────────────┼────────────────┼────────────────┼─────────────────┼────────────────┼─────────────┤   ├────────────────┼────────────────┼────────────────┼──────────────┼──────────────┼─────────────┤
+             &kp CAPS      &hml LGUI GRAVE  &hml LALT MINUS  &hml LCTRL EQUAL  &hml LSHFT LPAR  &kp LBKT          &kp RBKT         &hmr RSHFT RPAR  &hmr RCTRL SEMI  &hmr RALT SQT  &hmr RGUI RET  &kp DEL
+        // ├─────────────┼────────────────┼────────────────┼─────────────────┼────────────────┼─────────────┤   ├────────────────┼────────────────┼────────────────┼──────────────┼──────────────┼─────────────┤
+             &kp LSHFT     &out OUT_TOG     &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2     &none             &none            &none            &kp COMMA        &kp DOT        &kp FSLH       &kp RSHFT 
+        // ╰─────────────┴────────────────┴────────────────┼─────────────────┼────────────────┼─────────────┤   ├────────────────┼────────────────┼────────────────┼──────────────┴──────────────┴─────────────╯
+                                                             &none             &none            &bt BT_CLR        &mt RSHFT SPACE  &lt DIR SPACE    &kp RALT        
+        //                                                 ╰─────────────────┴────────────────┴─────────────╯   ╰────────────────┴────────────────┴────────────────╯
                         >;
                 };
 
@@ -223,10 +243,16 @@
 // | SHFT |     | F9  | F10 | F11 | F12 |       |      |  1  |  2  |  3  |     | SHFT |
 //                    |     |     |     |       | SHFT |  0  |  0  |
                         bindings = <
-   &kp ESC   &none    &kp F1       &kp F2        &kp F3        &kp F4        &none           &kp N7        &kp N8        &kp N9       &none         &kp BSPC
-   &kp CAPS  &kp LGUI &hml LALT F5 &hml LCTRL F6 &hml LSHFT F7 &kp F8        &none           &hmr RSHFT N4 &hmr RCTRL N5 &hmr RALT N6 &hmr RGUI RET &kp DEL
-   &kp LSHFT &none    &kp F9       &kp F10       &kp F11       &kp F12       &none           &kp N1        &kp N2        &kp N3       &none         &kp RSHFT
-                                   &none         &none         &none         &mt RSHFT SPACE &kp N0        &kp N0
+
+        // ╭─────────────┬─────────────┬─────────────┬──────────────┬──────────────┬─────────────╮   ╭────────────────┬──────────────┬──────────────┬─────────────┬──────────────┬─────────────╮
+             &kp ESC       &none         &kp F1        &kp F2         &kp F3         &kp F4            &none            &kp N7         &kp N8         &kp N9        &none          &kp BSPC
+        // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────┼─────────────┤   ├────────────────┼──────────────┼──────────────┼─────────────┼──────────────┼─────────────┤
+             &kp CAPS      &kp LGUI      &hml LALT F5  &hml LCTRL F6  &hml LSHFT F7  &kp F8            &none            &hmr RSHFT N4  &hmr RCTRL N5  &hmr RALT N6  &hmr RGUI RET  &kp DEL
+        // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────┼─────────────┤   ├────────────────┼──────────────┼──────────────┼─────────────┼──────────────┼─────────────┤
+             &kp LSHFT     &none         &kp F9        &kp F10        &kp F11        &kp F12           &none            &kp N1         &kp N2         &kp N3        &none          &kp RSHFT
+        // ╰─────────────┴─────────────┴─────────────┼──────────────┼──────────────┼─────────────┤   ├────────────────┼──────────────┼──────────────┼─────────────┴──────────────┴─────────────╯
+                                                       &none          &none          &none             &mt RSHFT SPACE  &kp N0         &kp N0
+        //                                           ╰──────────────┴──────────────┴─────────────╯   ╰────────────────┴──────────────┴──────────────╯
                         >;
                 };
 
@@ -240,27 +266,37 @@
 // WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
 
                         bindings = <
-   &kp ESC   &rgb_ug RGB_HUD &rgb_ug RGB_HUI &kp UP             &rgb_ug RGB_SAD &rgb_ug RGB_SAI          &tog MSE         &ctrl_pgd  &mo PGD      &kp C_BRI_DN &kp C_BRI_UP  &kp BSPC
-   &kp CAPS  &rgb_ug RGB_EFF &kp LEFT        &kp DOWN           &kp RIGHT       &kp LSHFT                &tog GME         &kp RSHFT  &kp RCTRL    &kp RALT     &hmr RGUI RET &kp DEL
-   &kp LSHFT &rgb_ug RGB_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI    &rgb_ug RGB_SPD &rgb_ug RGB_SPI          &kp LG(LS(LEFT)) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none         &kp RSHFT
-                                             &ext_power EP_OFF  &none           &bootloader              &bootloader      &none      &ext_power EP_ON
+
+        // ╭─────────────┬────────────────┬────────────────┬──────────────────┬────────────────┬────────────────╮   ╭─────────────────┬─────────────┬─────────────────┬─────────────┬──────────────┬─────────────╮
+             &kp ESC       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &kp UP             &rgb_ug RGB_SAD  &rgb_ug RGB_SAI      &tog MSE          &ctrl_pgd     &mo PGD           &kp C_BRI_DN  &kp C_BRI_UP   &kp BSPC
+        // ├─────────────┼────────────────┼────────────────┼──────────────────┼────────────────┼────────────────┤   ├─────────────────┼─────────────┼─────────────────┼─────────────┼──────────────┼─────────────┤
+             &kp CAPS      &rgb_ug RGB_EFF  &kp LEFT         &kp DOWN           &kp RIGHT        &kp LSHFT            &tog GME          &kp RSHFT     &kp RCTRL         &kp RALT      &hmr RGUI RET  &kp DEL
+        // ├─────────────┼────────────────┼────────────────┼──────────────────┼────────────────┼────────────────┤   ├─────────────────┼─────────────┼─────────────────┼─────────────┼──────────────┼─────────────┤
+             &kp LSHFT     &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI    &rgb_ug RGB_SPD  &rgb_ug RGB_SPI      &kp LG(LS(LEFT))  &kp C_MUTE    &kp C_VOL_DN      &kp C_VOL_UP  &none          &kp RSHFT
+        // ╰─────────────┴────────────────┴────────────────┼──────────────────┼────────────────┼────────────────┤   ├─────────────────┼─────────────┼─────────────────┼─────────────┴──────────────┴─────────────╯
+                                                             &ext_power EP_OFF  &none            &bootloader          &bootloader       &none         &ext_power EP_ON
+        //                                                 ╰──────────────────┴────────────────┴────────────────╯   ╰─────────────────┴─────────────┴─────────────────╯
                         >;
                 };
 
                 pg_direction_layer {
                         display-name = "PGD";
 // -----------------------------------------------------------------------------------------
-// | ESC  |      |      | PGUP |     |      |       |       |      |      |     |     |      |
-// | CAPS |      | HOME | PGDN | END |      | ----- |       | SHFT | CTRL | ALT | GUI |      |
-// | SHFT |      |      |      |     |      |       |       |      |      |     |     |      |
-//                      |      |     |      |       |       |      |      |
-// WINMV is combination of shift, gui, and left arrow, which moves a window to another monitor
+// | ESC  |      | SCLT | PGUP | SCRT |      |       |       |      |      |     |     |      |
+// | CAPS |      | HOME | PGDN | END  |      | ----- |       | SHFT | CTRL | ALT | GUI |      |
+// | SHFT |      |      |      |      |      |       |       |      |      |     |     |      |
+//                      |      |      |      |       |       |      |      |
 
                         bindings = <
-   &kp ESC   &none &none    &kp PG_UP &none   &none          &none &none     &none     &none    &none         &kp BSPC
-   &kp CAPS  &none &kp HOME &kp PG_DN &kp END &none          &none &kp RSHFT &kp RCTRL &kp RALT &hmr RGUI RET &kp DEL
-   &kp LSHFT &none &none    &none     &none   &none          &none &none     &none     &none    &none         &kp RSHFT
-                            &none     &none   &none          &none &none     &none
+        // ╭─────────────┬─────────────┬───────────────┬─────────────┬────────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬──────────────┬─────────────╮
+             &kp ESC       &none         &msc SCRL_LEFT  &kp PG_UP     &msc SCRL_RIGHT  &none             &none         &none         &none         &none         &none          &kp BSPC
+        // ├─────────────┼─────────────┼───────────────┼─────────────┼────────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤
+             &kp CAPS      &none         &kp HOME        &kp PG_DN     &kp END          &none             &none         &kp RSHFT     &kp RCTRL     &kp RALT      &hmr RGUI RET  &kp DEL
+        // ├─────────────┼─────────────┼───────────────┼─────────────┼────────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤
+             &kp LSHFT     &none         &none           &none         &none            &none             &none         &none         &none         &none         &none          &kp RSHFT
+        // ╰─────────────┴─────────────┴───────────────┼─────────────┼────────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴──────────────┴─────────────╯
+                                                         &none         &none            &none             &none         &none         &none
+        //                                             ╰─────────────┴────────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
 
@@ -272,10 +308,15 @@
 // | SHFT |     |     |     |     |     |       |     |     |     |     |     | SHFT |
 //                    |     |     | LMB |       | RMB |     |     |
                         bindings = <
-   &kp ESC   &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none                 &tog MSE  &mkp LCLK      &msc SCRL_UP   &mkp RCLK       &none   &kp BSPC
-   &kp CAPS  &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                 &none     &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &kp RET &kp DEL
-   &kp LSHFT &none &none          &none          &none           &none                 &none     &none          &none          &none           &none   &kp RSHFT
-                                  &none          &mkp LCLK       &none                 &kp RCTRL &mkp RCLK      &none
+        // ╭─────────────┬─────────────┬───────────────┬───────────────┬────────────────┬─────────────╮   ╭─────────────┬───────────────┬───────────────┬────────────────┬─────────────┬─────────────╮
+             &kp ESC       &none         &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none             &tog MSE      &mkp LCLK       &msc SCRL_UP    &mkp RCLK        &none         &kp BSPC
+        // ├─────────────┼─────────────┼───────────────┼───────────────┼────────────────┼─────────────┤   ├─────────────┼───────────────┼───────────────┼────────────────┼─────────────┼─────────────┤
+             &kp CAPS      &none         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none             &none         &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp RET       &kp DEL
+        // ├─────────────┼─────────────┼───────────────┼───────────────┼────────────────┼─────────────┤   ├─────────────┼───────────────┼───────────────┼────────────────┼─────────────┼─────────────┤
+             &kp LSHFT     &none         &none           &none           &none            &none             &none         &none           &none           &none            &none         &kp RSHFT
+        // ╰─────────────┴─────────────┴───────────────┼───────────────┼────────────────┼─────────────┤   ├─────────────┼───────────────┼───────────────┼────────────────┴─────────────┴─────────────╯
+                                                         &none           &mkp LCLK        &none             &kp RCTRL     &mkp RCLK       &none
+        //                                             ╰───────────────┴────────────────┴─────────────╯   ╰─────────────┴───────────────┴───────────────╯
                         >;
                 };
 
@@ -287,10 +328,15 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |       |     |  1  |  2  |  3  |     | SHFT |
 //                    |CTRL | SPC |     |       |     |  0  |  0  |
                         bindings = <
-   &kp ESC   &kp Q &kp W &kp E     &kp R     &kp T          &none    &kp N7 &kp N8 &kp N9 &none   &kp BSPC
-   &kp TAB   &kp A &kp S &kp D     &kp F     &kp G          &tog GME &kp N4 &kp N5 &kp N6 &kp RET &kp DEL
-   &kp LSHFT &kp Z &kp X &kp C     &kp V     &kp B          &none    &kp N1 &kp N2 &kp N3 &none   &kp RSHFT
-                         &kp LCTRL &kp SPACE &none          &none    &kp N0 &kp N0
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+             &kp ESC       &kp Q         &kp W         &kp E         &kp R         &kp T             &none         &kp N7        &kp N8        &kp N9        &none         &kp BSPC
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &kp TAB       &kp A         &kp S         &kp D         &kp F         &kp G             &tog GME      &kp N4        &kp N5        &kp N6        &kp RET       &kp DEL
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B             &none         &kp N1        &kp N2        &kp N3        &none         &kp RSHFT
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                       &kp LCTRL     &kp SPACE     &none             &none         &kp N0        &kp N0
+        //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
         };
