@@ -107,7 +107,7 @@
                     #binding-cells = <2>;
                     flavor = "tap-preferred";
                     tapping-term-ms = <5000>;
-                    bindings = <&none>, <&bootloader>;
+                    bindings = <&bootloader>, <&none>;
                     display-name = "Hold-Tap-Bootloader";
                 };
 
