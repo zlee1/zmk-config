@@ -104,7 +104,7 @@
                 // must hold key for 5 seconds to enter bootloader mode
                 ht_bootloader: hold_tap_bootloader {
                     compatible = "zmk,behavior-hold-tap";
-                    #binding-cells = <0>;
+                    #binding-cells = <2>;
                     flavor = "tap-preferred";
                     tapping-term-ms = <5000>;
                     bindings = <&none>, <&bootloader>;
