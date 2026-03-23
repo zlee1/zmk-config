@@ -126,7 +126,7 @@
                     tapping-term-ms = <200>;
                     bindings = <&shft_dir>, <&sk>;
                     display-name = "Layer-Tap-Shft-Dir-Sticky";
-                }
+                };
                 // key press and sticky key tap dance behavior
                 td_sk: tap_dance_sticky {
                     compatible = "zmk,behavior-tap-dance";
