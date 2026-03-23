@@ -127,12 +127,12 @@
                     bindings = <&shft_dir>, <&sk>;
                     display-name = "Layer-Tap-Shft-Dir-Sticky";
                 };
-                // key press and sticky key tap dance behavior
-                td_sk: tap_dance_sticky {
+                // double key press tap dance behavior
+                td_kp: tap_dance_keypress {
                     compatible = "zmk,behavior-tap-dance";
-                    #binding-cells = <0>;
+                    #binding-cells = <2>;
                     tapping-term-ms = <200>;
-                    bindings = <&sk>, <&kp>;
+                    bindings = <&kp>, <&kp>;
                 };
         };
 
@@ -270,7 +270,7 @@
         // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────┼─────────────┤   ├────────────────────────────┼────────────────────┼──────────────┼─────────────┼──────────────┼─────────────┤
              &td_home      &kp F9        &kp F10       &kp F11        &kp F12        &none             &none                        &kp N1               &kp N2         &kp N3        &none          &td_end
         // ╰─────────────┴─────────────┴─────────────┼──────────────┼──────────────┼─────────────┤   ├────────────────────────────┼────────────────────┼──────────────┼─────────────┴──────────────┴─────────────╯
-                                                       &none          &none          &none             &lt_shft_dir_sticky 0 RSHFT  &kp N0               &kp N0
+                                                       &none          &none          &none             &lt_shft_dir_sticky 0 RSHFT  &td_kp N0 SPACE      &kp N0
         //                                           ╰──────────────┴──────────────┴─────────────╯   ╰────────────────────────────┴────────────────────┴──────────────╯
                         >;
                 };
